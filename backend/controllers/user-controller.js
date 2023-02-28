@@ -155,7 +155,7 @@ const signup = (req, res) => {
 };
 const login = (req, res) => {
   let data = req.body;
-  let sql = `Select * from employees where email="${data.email}"`;
+  let sql = `Select * from employees where email="${data.email}" `;
   connection.query(sql, (error, results) => {
     if (error) {
       throw error;

@@ -65,35 +65,42 @@ export default function CalendarDashboard() {
 
   // Render the calendar dashboard
   return (
-    <div className="table table-success table-striped-columns table-bordered border-primary">
-      <br />
-      <br />
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            {calendarData.dates.map((date) => (
-              <th key={date}>{date}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {Object.entries(calendarData.employees).map(([id, employee]) => (
-            <tr key={id}>
-              <td>{employee.name}</td>
-              {calendarData.dates.map((date) => (
-                <td
-                  key={date}
-                  className={`status-${calendarData.employees[id][date]}`}
-                  onClick={() => handleCellClick(id, date)}
-                >
-                  {calendarData[id][date]}
-                </td>
+    <div className="bg-img1">
+      <h6 style={{ textAlign: "right", color: "blue" }}>P - Present</h6>
+      <h6 style={{ textAlign: "right", color: "red" }}>A - Absent</h6>
+      <div className="table table-success table-striped-columns table-responsive">
+        <div className="table-responsive">
+          <table className="table">
+            <thead style={{ width: "50%" }}>
+              <tr>
+                <th></th>
+                {calendarData.dates.map((date) => (
+                  <th key={date}>{date}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(calendarData.employees).map(([id, employee]) => (
+                <tr key={id}>
+                  <td style={{ fontSize: 20 }}>{employee.name}</td>
+                  {calendarData.dates.map((date) => (
+                    <td
+                      key={date}
+                      className={`status-${calendarData.employees[id][date]}`}
+                      onClick={() => handleCellClick(id, date)}
+                      style={{
+                        color: calendarData[id][date] === "P" ? "blue" : "red",
+                      }}
+                    >
+                      {calendarData[id][date]}
+                    </td>
+                  ))}
+                </tr>
               ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }

@@ -8,6 +8,7 @@ import CalendarDashboard from "./Components/CalendarDashboard";
 import Header from "./Components/Header";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
+import { Home } from "./Components/Home";
 
 function App() {
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
@@ -19,6 +20,7 @@ function App() {
       </header>
       <main>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           {isLoggedIn && (

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { authActions } from "../store";
-
+import "../css/Signup.css";
 const Login = () => {
   const dispatch = useDispatch();
   const history = useNavigate();
@@ -27,10 +27,12 @@ const Login = () => {
       .catch((err) => console.log(err));
 
     const data = await res.data;
-    console.log(data.message);
+    console.log(data.user);
     if (data.message === "User is not registered") {
-      alert("not registered");
+      alert("User not registered");
       history("/signup");
+    } else if (data.user.password !== inputs.password) {
+      alert("Incorrect Password");
     } else {
       history("/calendar");
     }
@@ -42,41 +44,46 @@ const Login = () => {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <Box
-          marginLeft="auto"
-          marginRight="auto"
-          width={300}
-          display="flex"
-          flexDirection={"column"}
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Typography variant="h2">Login</Typography>
+      <div className="bg-img">
+        <div className="signup">
+          <form onSubmit={handleSubmit}>
+            <Box
+              marginLeft="auto"
+              marginRight="auto"
+              width={300}
+              display="flex"
+              flexDirection={"column"}
+              justifyContent="center"
+              alignItems="center"
+              height={400}
+            >
+              <Typography variant="h4">Login</Typography>
 
-          <TextField
-            name="email"
-            onChange={handleChange}
-            type={"email"}
-            value={inputs.email}
-            variant="outlined"
-            placeholder="Email"
-            margin="normal"
-          />
-          <TextField
-            name="password"
-            onChange={handleChange}
-            type="password"
-            value={inputs.password}
-            variant="outlined"
-            placeholder="Password"
-            margin="normal"
-          />
-          <Button variant="contained" type="submit">
-            Login
-          </Button>
-        </Box>
-      </form>
+              <TextField
+                name="email"
+                onChange={handleChange}
+                type={"email"}
+                value={inputs.email}
+                variant="outlined"
+                placeholder="Email"
+                margin="normal"
+              />
+              <TextField
+                name="password"
+                onChange={handleChange}
+                type="password"
+                value={inputs.password}
+                variant="outlined"
+                placeholder="Password"
+                margin="normal"
+              />
+              <Button variant="contained" type="submit">
+                Login
+              </Button>
+            </Box>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };

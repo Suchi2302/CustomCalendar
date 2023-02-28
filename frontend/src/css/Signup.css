@@ -1,0 +1,22 @@
+.bg-img {
+  background-image: url("C:\Users\muppala.suchitha\node\Custom-Calendar\frontend\src\jpeg\calendarl.jpg");
+  height: 545px;
+  filter: blur(0.5);
+}
+.signup {
+  position: absolute;
+  left: 38%;
+  top: 20%;
+  background-color: azure;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px gray;
+}
+
+/* #root > main > div > div > div > form > div > div:nth-child(3),
+#root > main > div > div > div > form > div > div:nth-child(2) {
+  border: 2px solid black;
+}
+
+#root > main > div > div > div > form > div > div:nth-child(2) :hover {
+  border: none;
+} */

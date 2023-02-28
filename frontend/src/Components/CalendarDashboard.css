@@ -1,6 +1,16 @@
-table td{
-    text-align:center
+table td {
+  text-align: center;
 }
-table th{
-    font-size:10px
+table th {
+  font-size: 15px;
+}
+.bg-img1 {
+  background-image: url("C:\Users\muppala.suchitha\node\Custom-Calendar\frontend\src\jpeg\calendarl.jpg");
+  height: 545px;
+  filter: blur(0.5);
+}
+table thead {
+  position: sticky;
+  top: 0px;
+  margin: 0 0 0 0;
 }

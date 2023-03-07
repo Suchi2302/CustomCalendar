@@ -68,21 +68,23 @@ export default function CalendarDashboard() {
     <div className="bg-img1">
       <h6 style={{ textAlign: "right", color: "blue" }}>P - Present</h6>
       <h6 style={{ textAlign: "right", color: "red" }}>A - Absent</h6>
-      <div className="table table-success table-striped-columns table-responsive">
-        <div className="table-responsive">
+      <div className="table table-success table-striped-columns ">
+        <div>
           <table className="table">
-            <thead style={{ width: "50%" }}>
+            <thead>
               <tr>
                 <th></th>
                 {calendarData.dates.map((date) => (
-                  <th key={date}>{date}</th>
+                  <th key={date}>
+                    <b>{date}</b>
+                  </th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {Object.entries(calendarData.employees).map(([id, employee]) => (
                 <tr key={id}>
-                  <td style={{ fontSize: 20 }}>{employee.name}</td>
+                  <td style={{ fontSize: 10 }}>{employee.name}</td>
                   {calendarData.dates.map((date) => (
                     <td
                       key={date}
@@ -90,6 +92,7 @@ export default function CalendarDashboard() {
                       onClick={() => handleCellClick(id, date)}
                       style={{
                         color: calendarData[id][date] === "P" ? "blue" : "red",
+                        fontSize: 10,
                       }}
                     >
                       {calendarData[id][date]}

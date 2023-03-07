@@ -2,11 +2,12 @@ table td {
   text-align: center;
 }
 table th {
-  font-size: 15px;
+  font-size: 6px;
 }
 .bg-img1 {
   background-image: url("C:\Users\muppala.suchitha\node\Custom-Calendar\frontend\src\jpeg\calendarl.jpg");
   height: 545px;
+  width: fit-content;
   filter: blur(0.5);
 }
 table thead {

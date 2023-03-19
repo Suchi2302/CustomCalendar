@@ -76,7 +76,7 @@ export default function CalendarDashboard() {
                 <th></th>
                 {calendarData.dates.map((date) => (
                   <th key={date}>
-                    <b>{date}</b>
+                    <b >{date}</b>
                   </th>
                 ))}
               </tr>
@@ -84,7 +84,7 @@ export default function CalendarDashboard() {
             <tbody>
               {Object.entries(calendarData.employees).map(([id, employee]) => (
                 <tr key={id}>
-                  <td style={{ fontSize: 10 }}>{employee.name}</td>
+                  <td style={{ fontSize: 10 ,fontWeight: "bold"}}>{employee.name}</td>
                   {calendarData.dates.map((date) => (
                     <td
                       key={date}
@@ -93,6 +93,7 @@ export default function CalendarDashboard() {
                       style={{
                         color: calendarData[id][date] === "P" ? "blue" : "red",
                         fontSize: 10,
+                        fontWeight: "bold",
                       }}
                     >
                       {calendarData[id][date]}
